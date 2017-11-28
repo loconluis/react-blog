@@ -1,8 +1,15 @@
 import React from 'react';
 
+// Components
+import PostSummary from './PostSummary';
+import PostList from './PostList';
+
+
 const DashboardPage = () => (
   <div>
-    <p>Dashboard page content</p>
+    <PostSummary />
+    <hr />
+    <PostList />
   </div>
 );
 
