@@ -8,12 +8,10 @@ import configureStore from './store/configStore';
 // Styles 
 import 'normalize.css/normalize.css'; // normalizing styles for all browsers
 import './styles/App.css';
-// React-Dates
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
 // component
 import LoadingPage from './components/LoadingPage';
-
+// action
+import { startSetPosts } from './actions/blog';
 // FirebaseDB
 import { firebase } from './firebase/firebase';
 import { login, logout } from './actions/auth';
@@ -40,6 +38,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if(user) {
     // Here is login
     store.dispatch(login(user.uid));
+    store.dispatch(startSetPosts());
     renderApp();
     if(history.location.pathname === '/') {
       history.push('/dashboard');

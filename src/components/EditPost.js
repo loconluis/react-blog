@@ -53,4 +53,4 @@ const mapDispatchToProps = dispatch => ({
   startRemovePost: data => dispatch(startRemovePost(data)),
 });
 
-export default connect(undefined, mapDispatchToProps)(EditPost)
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost)

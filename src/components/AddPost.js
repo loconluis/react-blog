@@ -12,7 +12,6 @@ export class AddPost extends React.Component {
     // redux dispatch action AddPost
     this.props.startAddPost(post);
     this.props.history.push('/');
-
   }
 
   render() {
@@ -23,6 +22,7 @@ export class AddPost extends React.Component {
         <div>
           <PostForm
             onSubmit={this.onSubmit}
+            add={true}
           />
         </div>
       </div>

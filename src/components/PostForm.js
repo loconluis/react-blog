@@ -32,12 +32,19 @@ export default class PostForm extends React.Component {
       this.setState(() => ({ error: 'Please provide a title, or write something in the body of the post.' }))
     } else {
       this.setState(() => ({ error: '' }))
-
-      this.props.onSubmit({
-        title: this.state.title,
-        body: this.state.body,
-        createdAt: moment()
-      });
+      if(this.props.add) {
+        const time = Date.now();
+        this.props.onSubmit({
+          title: this.state.title,
+          body: this.state.body,
+          createdAt: time,
+        });
+      } else {
+        this.props.onSubmit({
+          title: this.state.title,
+          body: this.state.body,
+        });
+      }
     }
   }
 
