@@ -5,8 +5,8 @@ import { startLogin } from '../actions/auth';
 const LoginPage = ({ startLogin }) => (
   <div className="box-layout">
     <div className="box-layout__box">
-      <h1 className="box-layout__title">BoilerPlate</h1>
-      <p>Use this for a quick login page with google.</p>
+      <h1 className="box-layout__title">React Blog</h1>
+      <p>Publish your life, thoughts, ideas, etc. And share with your friends.</p>
       <button className="btn" onClick={startLogin}>Log in with <i className="fa fa-google-plus" aria-hidden="true" /></button>
     </div>
   </div>
