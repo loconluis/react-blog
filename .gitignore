@@ -5,6 +5,7 @@
 
 # firebase config
 /src/firebase/config.js
+/src/playground
 
 # testing
 /coverage

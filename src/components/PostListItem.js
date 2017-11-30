@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const PostListItem = (props) => {
-  console.log(props);
+const PostListItem = ({
+  id,
+  title,
+  createdAt,
+}) => {
   return (
   <div>
-    <Link to="">
-      <h3>titulo</h3>
-      <span>fecha</span>
+    <Link to={`/edit/${id}`}>
+      <h3>{title}</h3>
+      <span>{createdAt}</span>
     </Link>
   </div>
 )};

@@ -7,7 +7,6 @@ import { startEditPost, startRemovePost } from '../actions/blog';
 
 
 export class EditPost extends React.Component {
-  
   onSubmit = (post) => {
     // redux dispatch action EditPost
     this.props.startEditPost(this.props.post.id, post);
@@ -45,7 +44,7 @@ export class EditPost extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  post: state.posts.find(post => post.id === props.match.params.id),
+  post: state.blog.find(post => post.id === props.match.params.id),
 })
 
 const mapDispatchToProps = dispatch => ({

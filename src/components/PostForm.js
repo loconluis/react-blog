@@ -1,13 +1,12 @@
 import React from 'react';
-import moment from 'moment';
 
 export default class PostForm extends React.Component {
   constructor(props) {
     super(props);
     // states of class
     this.state = {
-      title: '',
-      body: '',
+      title: props.post ? props.post.title : '',
+      body: props.post ? props.post.body : '',
       error: '',
     };
   }

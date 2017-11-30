@@ -34,7 +34,7 @@ export const startRemovePost = ({ id } = {}) => {
 
 // EDIT POST
 export const editPost = (id, updates) => ({
-  type: 'UPDATE_POST',
+  type: 'EDIT_POST',
   id,
   updates,
 });
@@ -55,12 +55,13 @@ export const setPosts = posts => ({
 
 export const startSetPosts = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.id;
-    return database.ref(`users/${uid}/posts`).once('value')
+    const uid = getState().auth.uid;
+    const dbURI = `users/${uid}/posts`;
+    return database.ref(dbURI)
+      .once('value')
       .then((snapshot) => {
         const posts = [];
-        snapshot.forEach((childSnapshot) => {
-          console.log(snapshot);
+        snapshot.forEach(childSnapshot => {
           posts.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
