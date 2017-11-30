@@ -20,17 +20,17 @@ export class EditPost extends React.Component {
   }
 
   render() {
+    console.log(this.props.post)
     return (
       <div>
-        <h2>Edit post of your blog</h2>
-        {/*Render a Post form*/}
+        <h2>Edit post</h2>
         <div>
           <PostForm
+            isEdit
             post={this.props.post}
             onSubmit={this.onSubmit}
           />
         </div>
-        {/*Render a delete button*/}
         <div>
           <button
             onClick={this.onRemove}
@@ -47,9 +47,9 @@ const mapStateToProps = (state, props) => ({
   post: state.blog.find(post => post.id === props.match.params.id),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, props) => ({
   startEditPost: (id, post) => dispatch(startEditPost(id, post)),
   startRemovePost: data => dispatch(startRemovePost(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditPost)
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost);

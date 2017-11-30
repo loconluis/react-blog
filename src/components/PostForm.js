@@ -1,14 +1,23 @@
 import React from 'react';
 
 export default class PostForm extends React.Component {
+  
   constructor(props) {
     super(props);
-    // states of class
+
     this.state = {
       title: props.post ? props.post.title : '',
       body: props.post ? props.post.body : '',
       error: '',
     };
+  }
+
+  componentWillReceiveProps (nextProps) {
+    console.log('nextProps 1', nextProps)
+    this.setState(() => ({
+      title: nextProps.post.title,
+      body: nextProps.post.body,
+    }))
   }
 
   onBodyChange = (e) => {
@@ -31,7 +40,7 @@ export default class PostForm extends React.Component {
       this.setState(() => ({ error: 'Please provide a title, or write something in the body of the post.' }))
     } else {
       this.setState(() => ({ error: '' }))
-      if(this.props.add) {
+      if(!this.props.isEdit) {
         const time = Date.now();
         this.props.onSubmit({
           title: this.state.title,
