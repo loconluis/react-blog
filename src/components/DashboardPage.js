@@ -9,7 +9,6 @@ import PostList from './PostList';
 const DashboardPage = () => (
   <div>
     <PostSummary />
-    <hr />
     <PostListFilters />
     <PostList />
   </div>

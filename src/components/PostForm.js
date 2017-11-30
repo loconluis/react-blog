@@ -1,4 +1,5 @@
 import React from 'react';
+import PublicLinkReader from './PublicLinkReader';
 
 export default class PostForm extends React.Component {
   
@@ -9,11 +10,11 @@ export default class PostForm extends React.Component {
       title: props.post ? props.post.title : '',
       body: props.post ? props.post.body : '',
       error: '',
+      publicRoute: '',
     };
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('nextProps 1', nextProps)
     this.setState(() => ({
       title: nextProps.post.title,
       body: nextProps.post.body,
@@ -29,7 +30,8 @@ export default class PostForm extends React.Component {
   onTitleChange = (e) => {
     // take the value of Title input
     const title = e.target.value;
-    this.setState(() => ({ title }));
+    const publicRoute = title.toLowerCase().split(' ').join('-')
+    this.setState(() => ({ title, publicRoute }));
   }
 
   onSubmit = (e) => {
@@ -58,23 +60,26 @@ export default class PostForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        {this.state.error && <p>{this.state.error}</p>}
-        <input
-          type="text"
-          placeholder="Set a title for this post"
-          autoFocus
-          value={this.state.title}
-          onChange={this.onTitleChange}
-        />
-        <textarea
-          type="text"
-          placeholder="Write something cool, people will love it!"
-          value={this.state.body}
-          onChange={this.onBodyChange}
-        />
-        <button>Add Post</button>
-      </form>
+      <div>
+        <PublicLinkReader route={this.state.publicRoute} />
+        <form onSubmit={this.onSubmit}>
+          {this.state.error && <p>{this.state.error}</p>}
+          <input
+            type="text"
+            placeholder="Set a title for this post"
+            autoFocus
+            value={this.state.title}
+            onChange={this.onTitleChange}
+          />
+          <textarea
+            type="text"
+            placeholder="Write something cool, people will love it!"
+            value={this.state.body}
+            onChange={this.onBodyChange}
+          />
+          <button>Add Post</button>
+        </form>
+      </div>
     );
   }
 }

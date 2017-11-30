@@ -20,7 +20,6 @@ export class EditPost extends React.Component {
   }
 
   render() {
-    console.log(this.props.post)
     return (
       <div>
         <h2>Edit post</h2>
