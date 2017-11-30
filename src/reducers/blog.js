@@ -11,7 +11,7 @@ const blogReducer = (state = blogReducerDefaultState, action) => {
         if (post.id === action.id) {
           return {
             ...post,
-            ...action.post
+            ...action.updates
           }
         }
         return post;
