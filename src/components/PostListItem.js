@@ -7,15 +7,13 @@ const PostListItem = ({
   createdAt,
 }) => {
   return (
-  <div>
-    <Link to={`/edit/${id}`}>
-      <h3>{title}</h3>
-      <span>{createdAt}</span>
-    </Link>
+  <Link to={`/edit/${id}`} className="list-item">
+    <h3 className="list-item__title">{title}</h3>
+    <span className="list-item__sub-title">{createdAt}</span>
     <div>
       <Link to={`/me/${id}`}>View post</Link>
     </div>
-  </div>
+  </Link>
 )};
 
 export default PostListItem;

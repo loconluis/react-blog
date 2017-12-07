@@ -75,8 +75,8 @@ button:disabled {
 
 .page-header {
   background: #f7f7f7;
-  margin-bottom: 3.2rem;
-  padding: 3.2rem 0; }
+  margin-bottom: 1.2rem;
+  padding: 1.6rem 0; }
 
 .page-header__title {
   font-weight: 300;
@@ -113,7 +113,7 @@ button:disabled {
   padding: 1.2rem; }
 
 .textarea {
-  height: 10rem; }
+  height: 50rem; }
 
 .form {
   display: flex;

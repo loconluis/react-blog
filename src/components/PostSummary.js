@@ -8,10 +8,12 @@ import selectPosts from '../selectors/posts';
 
 const PostSummary = ({ postsCount }) => {
   return (
-    <div>
-      <h1>Viewing <span>{postsCount}</span></h1>
-      <div>
-        <Link to="/create">New post</Link>
+    <div className="page-header">
+      <div className="container">
+        <h1 className="page-header__title">Viewing <span>{postsCount}</span></h1>
+        <div className="page-header__actions">
+          <Link to="/create" className="btn">New post</Link>
+        </div>
       </div>
     </div>
   )

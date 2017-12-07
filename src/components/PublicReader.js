@@ -19,7 +19,7 @@ export class PublicReader extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className="container">
         {
           this.props.post !== undefined 
           ? (
