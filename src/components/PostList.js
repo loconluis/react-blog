@@ -8,6 +8,11 @@ import selectPosts from '../selectors/posts';
 const PostList =  (props) => {
   return (
     <div className="container">
+    <div className="list-header">
+      <div className="show-for-mobile">Post</div>
+      <div className="show-for-desktop">Post</div>
+      <div className="show-for-desktop">Preview</div>
+    </div>
       <div className="list-body">
         {
           props.posts.length === 0 ? (

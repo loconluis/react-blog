@@ -27,6 +27,17 @@
     background: $off-white;
   }
 
+  .list-item__link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:link, &:visited {
+      color: $dark-grey;
+    }
+  }
+
   @media (min-width: $desktop-breakpoint) {
     align-items: center;
     flex-direction: row;

@@ -18,6 +18,7 @@ export class PublicReader extends React.Component {
   
 
   render() {
+    console.log(this.props.post)
     return (
         <div className="container">
         {
