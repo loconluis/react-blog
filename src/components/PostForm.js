@@ -61,7 +61,6 @@ export default class PostForm extends React.Component {
   render() {
     return (
       <div>
-        <PublicLinkReader route={this.state.publicRoute} />
         <form onSubmit={this.onSubmit}>
           {this.state.error && <p>{this.state.error}</p>}
           <input

@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default (props) => {
+export default ({ id }) => {
   return (
     <div>
-      Public route here: { props.route }
+      <Link to={`/me/${id}`} exact>View post</Link>
     </div>
   )
 }
