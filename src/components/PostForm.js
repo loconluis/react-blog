@@ -15,6 +15,7 @@ export default class PostForm extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState(() => ({
+      title: nextProps.post.title,
       body: nextProps.post.body,
     }))
   }
@@ -58,25 +59,27 @@ export default class PostForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          {this.state.error && <p>{this.state.error}</p>}
-          <input
-            type="text"
-            placeholder="Set a title for this post"
-            autoFocus
-            value={this.state.title}
-            onChange={this.onTitleChange}
-          />
-          <textarea
-            type="text"
-            placeholder="Write something cool, people will love it!"
-            value={this.state.body}
-            onChange={this.onBodyChange}
-          />
-          <button>Add Post</button>
-        </form>
-      </div>
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p>{this.state.error}</p>}
+        <input
+          className="text-input"
+          type="text"
+          placeholder="Set a title for this post"
+          autoFocus
+          value={this.state.title}
+          onChange={this.onTitleChange}
+        />
+        <textarea
+          className="textarea"
+          type="text"
+          placeholder="Write something cool, people will love it!"
+          value={this.state.body}
+          onChange={this.onBodyChange}
+        />
+        <div>
+          <button className="btn">Add Post</button>
+        </div>
+      </form>
     );
   }
 }

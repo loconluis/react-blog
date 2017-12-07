@@ -22,16 +22,19 @@ export class EditPost extends React.Component {
   render() {
     return (
       <div>
-        <h2>Edit post</h2>
-        <div>
+        <div className="page-header">
+          <div className="container">
+            <h1>Edit post</h1>
+          </div>
+        </div>
+        <div className="container">
           <PostForm
             isEdit
             post={this.props.post}
             onSubmit={this.onSubmit}
           />
-        </div>
-        <div>
           <button
+            className="btn btn--warning"
             onClick={this.onRemove}
           >
             Remove Post
