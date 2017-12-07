@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// components
-import PublicLinkReader from './PublicLinkReader';
-
 
 const PostListItem = ({
   id,

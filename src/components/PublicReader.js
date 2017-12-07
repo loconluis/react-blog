@@ -10,16 +10,6 @@ export class PublicReader extends React.Component {
     };
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(nextProps)
-    // this.setState(() => ({
-    //   body: nextProps.post.body,
-    // }))
-  }
-
-  componentWillMount () {
-  }
-
   handleMarkdownToHtml = (text) => {
     let convert = new showdown.Converter();
     let html = convert.makeHtml(this.props.post.body);
@@ -28,11 +18,16 @@ export class PublicReader extends React.Component {
   
 
   render() {
-    console.log(this.props.post.body);
     return (
-        <div
-          dangerouslySetInnerHTML={this.handleMarkdownToHtml(this.props.post.body)}
-        >
+        <div>
+        {
+          this.props.post !== undefined 
+          ? (
+            <div
+              dangerouslySetInnerHTML={this.handleMarkdownToHtml(this.props.post.body)}
+            >
+            </div> ) : ''
+        }
         </div>
     );
   };

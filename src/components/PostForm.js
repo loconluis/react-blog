@@ -6,7 +6,7 @@ export default class PostForm extends React.Component {
     super(props);
 
     this.state = {
-      title: props.post ? props.post.title : '',
+      title: props.post ? props.post.title : '', 
       body: props.post ? props.post.body : '',
       error: '',
       publicRoute: '',
@@ -15,7 +15,6 @@ export default class PostForm extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState(() => ({
-      title: nextProps.post.title,
       body: nextProps.post.body,
     }))
   }
