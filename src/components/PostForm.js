@@ -1,5 +1,4 @@
 import React from 'react';
-import PublicLinkReader from './PublicLinkReader';
 
 export default class PostForm extends React.Component {
   
