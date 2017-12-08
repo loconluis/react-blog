@@ -28,6 +28,13 @@
   background: transparent;
 }
 
+.btn--link__invert {
+  color: $orange;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .btn--warning {
   background: red;
 }

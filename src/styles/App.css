@@ -64,6 +64,11 @@ button:disabled {
 .btn--link {
   background: transparent; }
 
+.btn--link__invert {
+  color: #ff6a00; }
+  .btn--link__invert:hover {
+    text-decoration: underline; }
+
 .btn--warning {
   background: red; }
 

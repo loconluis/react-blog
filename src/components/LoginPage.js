@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { startLogin } from '../actions/auth';
 
 const LoginPage = ({ startLogin }) => (
@@ -8,6 +9,9 @@ const LoginPage = ({ startLogin }) => (
       <h1 className="box-layout__title">React Blog</h1>
       <p>Publish your life, thoughts, ideas, etc.<br/> And share with your friends.</p>
       <button className="btn btn--login" onClick={startLogin}>Log in with <i className="fa fa-google-plus" aria-hidden="true" /></button>
+      <div>
+        <Link className="btn btn--link btn--link__invert" to="/luislocon">Explore</Link>
+      </div>
     </div>
   </div>
 );
