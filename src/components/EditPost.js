@@ -24,7 +24,7 @@ export class EditPost extends React.Component {
       <div>
         <div className="page-header">
           <div className="container">
-            <h1>Edit post</h1>
+            <h1 className="page-header__title">Edit Markdown Editor</h1>
           </div>
         </div>
         <div className="container">

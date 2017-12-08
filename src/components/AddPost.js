@@ -19,7 +19,7 @@ export class AddPost extends React.Component {
       <div>
         <div className="page-header">
           <div className="container">
-            <h1>Add a new post of your blog</h1>
+            <h1 className="page-header__title">Markdown Editor</h1>
           </div>
         </div>
         {/*Render a Post form*/}
