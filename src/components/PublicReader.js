@@ -1,6 +1,7 @@
 import React from 'react';
 import showdown from 'showdown';
 import database from '../firebase/firebase';
+import PublicHeader from './PublicHeader'
 
 export class PublicReader extends React.Component {
   constructor(props) {
@@ -30,7 +31,11 @@ export class PublicReader extends React.Component {
   
 
   render() {
+    const name = this.props.match.params.username;
+    const publicName = `@${name}`;
     return (
+      <div>
+        <PublicHeader publicName={publicName} isPostView name={name} />
         <div className="container">
         {
           this.state.body !== undefined 
@@ -41,6 +46,7 @@ export class PublicReader extends React.Component {
             </div> ) : ''
         }
         </div>
+      </div>
     );
   };
 }

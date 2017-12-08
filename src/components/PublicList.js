@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import database from '../firebase/firebase';
 import PostListItem from './PostListItem';
+import PublicHeader from './PublicHeader'
 
 class PublicList extends Component {
   constructor(props) {
@@ -32,33 +33,26 @@ class PublicList extends Component {
     const publicName = `@${name}`;
     return (
       <div>
-      <header className="header">
-        <div className="container">
-          <div className="header__content">
-            <div className="header__title">
-              <h1>{publicName} Blog</h1>
-            </div>
-          </div>
+      <PublicHeader publicName={publicName} name={name} />
+      <br />
+      <div className="container">
+        <div className="list-header">
+          <div className="show-for-mobile">Post</div>
+          <div className="show-for-desktop">Post</div>
+          <div className="show-for-desktop">Preview</div>
         </div>
-      </header>
-        <div className="container">
-          <div className="list-header">
-            <div className="show-for-mobile">Post</div>
-            <div className="show-for-desktop">Post</div>
-            <div className="show-for-desktop">Preview</div>
-          </div>
-          <div className="list-body">
-          {
-            this.state.posts === 0 ? (
-              <div>
-                <span>No Posts</span>
-              </div>) 
-            : (
-              this.state.posts.map((post, index) => <PostListItem isPublic key={index} {...post}/>)
-            )
-          }
-          </div>
+        <div className="list-body">
+        {
+          this.state.posts === 0 ? (
+            <div>
+              <span>No Posts</span>
+            </div>) 
+          : (
+            this.state.posts.map((post, index) => <PostListItem name={name} isPublic key={index} {...post}/>)
+          )
+        }
         </div>
+      </div>
       </div>
     )
   }

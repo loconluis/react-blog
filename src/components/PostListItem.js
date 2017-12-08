@@ -6,7 +6,8 @@ const PostListItem = ({
   id,
   title,
   createdAt,
-  isPublic
+  isPublic,
+  name
 }) => {
   return (
     <div className="list-item">
@@ -29,7 +30,7 @@ const PostListItem = ({
       <div>
       {
         isPublic 
-        ? (<Link to={`/luislocon/${id}`}>View post</Link>) 
+        ? (<Link to={`/${name}/${id}`}>View post</Link>) 
         : (<Link to={`/me/${id}`}>View post</Link>)
       }
         
