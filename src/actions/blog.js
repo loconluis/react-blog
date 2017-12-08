@@ -9,11 +9,12 @@ export const addPost = post => ({
 // trigger the action
 export const startAddPost = (postData = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    // console.log(getState().auth)
+    const username = getState().auth.username;
     const {title = '', body = '', createdAt = 0 } = postData;
     const post = {title, body, createdAt };
     // add the post to database, later dispatch an action
-    return database.ref(`users/${uid}/posts`).push(post)
+    return database.ref(`users/${username}/posts`).push(post)
       .then(ref => dispatch(addPost({ id: ref.key, ...post })));
   }
 }
@@ -26,8 +27,8 @@ export const removePost = ({ id } = {}) => ({
 
 export const startRemovePost = ({ id } = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return database.ref(`users/${uid}/posts/${id}`).remove()
+    const username = getState().auth.username;
+    return database.ref(`users/${username}/posts/${id}`).remove()
       .then(() => dispatch(removePost({ id })));
   }
 }
@@ -41,8 +42,8 @@ export const editPost = (id, updates) => ({
 
 export const startEditPost = (id, updates) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return database.ref(`users/${uid}/posts/${id}`).update(updates)
+    const username = getState().auth.username;
+    return database.ref(`users/${username}/posts/${id}`).update(updates)
       .then(() => dispatch(editPost(id, updates)));
   }
 }
@@ -55,8 +56,8 @@ export const setPosts = posts => ({
 
 export const startSetPosts = () => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    const dbURI = `users/${uid}/posts`;
+    const username = getState().auth.username;
+    const dbURI = `users/${username}/posts`;
     return database.ref(dbURI)
       .once('value')
       .then((snapshot) => {

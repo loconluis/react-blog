@@ -36,8 +36,11 @@ ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 // This help us to know the state of auth!
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
+    // console.log(user);
+    const username = user.displayName.toLowerCase().split(' ').join('');
+    // console.log(username)
     // Here is login
-    store.dispatch(login(user.uid));
+    store.dispatch(login(user.uid, username));
     store.dispatch(startSetPosts());
     renderApp();
     if(history.location.pathname === '/') {

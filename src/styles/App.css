@@ -113,7 +113,8 @@ button:disabled {
 
 .input-group {
   display: flex;
-  margin-bottom: 1.6rem; }
+  margin-bottom: 1.6rem;
+  flex-direction: column; }
   @media (min-width: 45rem) {
     .input-group {
       flex-direction: column;
