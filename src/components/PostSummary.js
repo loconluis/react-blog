@@ -10,9 +10,11 @@ const PostSummary = ({ postsCount }) => {
   return (
     <div className="page-header">
       <div className="container">
-        <h1 className="page-header__title">Viewing <span>{postsCount}</span></h1>
-        <div className="page-header__actions">
-          <Link to="/create" className="btn">New post</Link>
+        <div className="page-header__summary">
+          <h1 className="page-header__title">Viewing <span>{postsCount}</span></h1>
+          <div className="page-header__actions">
+            <Link to="/create" className="btn btn--action">New post</Link>
+          </div>
         </div>
       </div>
     </div>

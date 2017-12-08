@@ -12,6 +12,12 @@
   }
 }
 
+.page-header__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .page-header__actions {
   margin-top: $m-size;
 }
