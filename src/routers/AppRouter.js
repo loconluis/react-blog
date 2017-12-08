@@ -6,7 +6,8 @@ import DashboardPage from '../components/DashboardPage';
 import AddPost from "../components/AddPost";
 import EditPost from '../components/EditPost';
 import Error404 from '../components/Error404';
-import PublicReader from '../components/PublicReader';
+import PrivateReader from '../components/PrivateReader';
+import PublicReader  from '../components/PublicReader';
 import LoginPage from '../components/LoginPage';
 import PublicList from '../components/PublicList';
 import PrivateRoute from './PrivateRoute';
@@ -22,7 +23,8 @@ const AppRouter = () => (
         <PrivateRoute path="/dashboard" component={DashboardPage} exact />
         <PrivateRoute path="/create" component={AddPost} exact />
         <PrivateRoute path="/edit/:id" component={EditPost} exact />
-        <PrivateRoute path="/me/:id" component={PublicReader} exact />
+        <PrivateRoute path="/me/:id" component={PrivateReader} exact />
+        <PublicRoute path="/:username/:id" component={PublicReader} />
         <PublicRoute path="/:username" component={PublicList} exact />
         <PublicRoute component={Error404} />
       </Switch>

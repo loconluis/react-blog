@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import showdown from 'showdown';
+import database from '../firebase/firebase';
 
 export class PublicReader extends React.Component {
   constructor(props) {
@@ -10,22 +10,33 @@ export class PublicReader extends React.Component {
     };
   }
 
+  componentWillMount = () => {
+    const id = this.props.match.params.id;
+    const username = this.props.match.params.username;
+    database.ref(`users/${username}/posts/${id}`)
+      .once('value', snapshot => {
+        let post = snapshot.val();
+        let body = post.body;
+        this.setState(() => ({ body }))
+      }, err => console.log(err))
+  }
+  
+
   handleMarkdownToHtml = (text) => {
     let convert = new showdown.Converter();
-    let html = convert.makeHtml(this.props.post.body);
+    let html = convert.makeHtml(text);
     return { __html: html };
   }
   
 
   render() {
-    console.log(this.props.post)
     return (
         <div className="container">
         {
-          this.props.post !== undefined 
+          this.state.body !== undefined 
           ? (
             <div
-              dangerouslySetInnerHTML={this.handleMarkdownToHtml(this.props.post.body)}
+              dangerouslySetInnerHTML={this.handleMarkdownToHtml(this.state.body)}
             >
             </div> ) : ''
         }
@@ -34,8 +45,4 @@ export class PublicReader extends React.Component {
   };
 }
 
-const mapStateToProps = (state, props) => ({
-  post: state.blog.find(post => post.id === props.match.params.id),
-})
-
-export default connect(mapStateToProps)(PublicReader);
+export default PublicReader;

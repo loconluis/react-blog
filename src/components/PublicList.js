@@ -12,14 +12,13 @@ class PublicList extends Component {
   }
   
   componentWillMount = () => {
-    console.log('Pre-render');
     const username = this.props.match.params.username;
     database.ref(`users/${username}/posts`)
       .on('value', snapshot => {
         const posts = [];
-        console.log(snapshot)
         snapshot.forEach(childSnapshot => {
           posts.push({
+            id: childSnapshot.key,
             ...childSnapshot.val(),
           })
         })
@@ -53,7 +52,7 @@ class PublicList extends Component {
                 <span>No Posts</span>
               </div>) 
             : (
-              this.state.posts.map((post, index) => <PostListItem key={index} {...post}/>)
+              this.state.posts.map((post, index) => <PostListItem isPublic key={index} {...post}/>)
             )
           }
           </div>

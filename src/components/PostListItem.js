@@ -6,6 +6,7 @@ const PostListItem = ({
   id,
   title,
   createdAt,
+  isPublic
 }) => {
   return (
     <div className="list-item">
@@ -14,7 +15,12 @@ const PostListItem = ({
         <span className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</span>
       </Link>
       <div>
-        <Link to={`/me/${id}`}>View post</Link>
+      {
+        isPublic 
+        ? (<Link to={`/luislocon/${id}`}>View post</Link>) 
+        : (<Link to={`/me/${id}`}>View post</Link>)
+      }
+        
       </div>
     </div>
 )};
