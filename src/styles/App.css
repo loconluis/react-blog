@@ -37,7 +37,7 @@ button:disabled {
   line-height: 1; }
 
 .btn {
-  background: #1c88cb;
+  background: black;
   border: none;
   padding: 1.2rem;
   font-size: 1.8rem;
@@ -102,11 +102,10 @@ button:disabled {
 
 .input-group {
   display: flex;
-  flex-direction: column;
   margin-bottom: 1.6rem; }
   @media (min-width: 45rem) {
     .input-group {
-      flex-direction: row;
+      flex-direction: column;
       margin-bottom: 3.2rem; } }
 
 .input-group__item {

@@ -14,15 +14,13 @@ class PostListFilters extends React.Component {
     return (
       <div className="container">
         <div className="input-group">
-          <div className="input-group__item">
-            <input
-              className="text-input"
-              type="text"
-              placeholder="Search post"
-              value={this.props.filters.text}
-              onChange={this.onTextChange}
-            />
-          </div>
+          <input
+            className="text-input"
+            type="text"
+            placeholder="Search post"
+            value={this.props.filters.text}
+            onChange={this.onTextChange}
+          />
         </div>
       </div>
     );
