@@ -32,13 +32,15 @@ class PublicList extends Component {
     const publicName = `@${name}`;
     return (
       <div>
-        <div className="page-header">
-          <div className="container">
-            <div className="page-header__summary">
-              <h1 className="page-header__title"><span>{publicName}</span> Blog</h1>
+      <header className="header">
+        <div className="container">
+          <div className="header__content">
+            <div className="header__title">
+              <h1>{publicName} Blog</h1>
             </div>
           </div>
         </div>
+      </header>
         <div className="container">
           <div className="list-header">
             <div className="show-for-mobile">Post</div>

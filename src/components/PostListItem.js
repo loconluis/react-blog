@@ -10,10 +10,22 @@ const PostListItem = ({
 }) => {
   return (
     <div className="list-item">
-      <Link to={`/edit/${id}`} className="list-item__link">
-        <h3 className="list-item__title">{title}</h3>
-        <span className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</span>
-      </Link>
+    {
+      isPublic 
+      ? (
+        <div>
+          <h3 className="list-item__title">{title}</h3>
+          <span className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</span>
+        </div>
+      )
+      : (
+        <Link to={`/edit/${id}`} className="list-item__link">
+          <h3 className="list-item__title">{title}</h3>
+          <span className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</span>
+        </Link>
+      )
+    }
+      
       <div>
       {
         isPublic 
