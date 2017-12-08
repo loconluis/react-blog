@@ -61,6 +61,26 @@ export const startSetPosts = () => {
     return database.ref(dbURI)
       .once('value')
       .then((snapshot) => {
+        console.log(snapshot);
+        const posts = [];
+        snapshot.forEach(childSnapshot => {
+          posts.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+        return posts;
+      }).then(posts => dispatch(setPosts(posts)));
+  }
+}
+
+export const startSetPublicPosts = (username) => {
+  return (dispatch) => {
+    const dbURI = `users/${username}/posts`;
+    return database.ref(dbURI)
+      .once('value')
+      .then((snapshot) => {
+        console.log(snapshot);
         const posts = [];
         snapshot.forEach(childSnapshot => {
           posts.push({

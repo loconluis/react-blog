@@ -8,6 +8,7 @@ import EditPost from '../components/EditPost';
 import Error404 from '../components/Error404';
 import PublicReader from '../components/PublicReader';
 import LoginPage from '../components/LoginPage';
+import PublicList from '../components/PublicList';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -22,6 +23,7 @@ const AppRouter = () => (
         <PrivateRoute path="/create" component={AddPost} exact />
         <PrivateRoute path="/edit/:id" component={EditPost} exact />
         <PrivateRoute path="/me/:id" component={PublicReader} exact />
+        <PublicRoute path="/:username" component={PublicList} exact />
         <PublicRoute component={Error404} />
       </Switch>
     </div>
