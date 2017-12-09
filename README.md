@@ -12,7 +12,13 @@ To enter, google credentials are required. So you need a google account to enter
 
 `/edit/:id` : It is where you can edit and / or delete any post.
 
-![Imgur](https://i.imgur.com/Q8S5yQ0.gif)
+`/:username/` : username is a required parameter to search the database. In this address are public posts available.
+
+`/:username/:id` : username and id are parameters required to do the search. In this address a single post is shown (required according to the parameters).
+
+[Demo here](https://react-blog.now.sh/)
+
+![Imgur](https://i.imgur.com/vk9RuFJ.gif)
 
 
 ### Development

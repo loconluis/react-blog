@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
     const username = user.displayName.toLowerCase().split(' ').join('');
     // console.log(username)
     // Here is login
-    store.dispatch(login(user.uid, username));
+    store.dispatch(login(user.uid, user.displayName ,username));
     store.dispatch(startSetPosts());
     renderApp();
     if(history.location.pathname === '/') {
