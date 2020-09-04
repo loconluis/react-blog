@@ -18,7 +18,7 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "showdown": "^1.8.4"
+    "showdown": "^1.9.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
